@@ -120,7 +120,7 @@ h2 {
 	    margin-bottom: 0.667em;
 	    margin-top: 0.667em;
 	    text-decoration: none;
-	    text-transform: uppercase;	
+	    /*text-transform: uppercase;*/	
 }
 
 h2 a:hover {
