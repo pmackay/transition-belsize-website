@@ -55,9 +55,9 @@ body {
 /*
  * Header
  */
-#header {background-image: url('../images/header_Image_24.png');/* added by GR*/
-				margin-top:35px; 
-				height:326px;
+#header {background-image: url('../images/header_Image_8.png');/* added by GR*/
+				margin-top:1px; 
+				height:236px;
 }
 
 #header .section {
