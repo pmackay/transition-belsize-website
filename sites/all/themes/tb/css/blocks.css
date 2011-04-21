@@ -55,6 +55,7 @@
 }
 
 #block-block-1 /* First administrator-defined block */ {
+  padding: 0;
 }
 
 #block-blog-0 /* "Recent blog posts" block */ {
@@ -97,7 +98,7 @@
 }
 
 #block-user-1 /* "Navigation" block for Drupal navigation menu */ {
-	background-image:url("../images/sideBar_middle_03_03.png"); /* GR */
+	background-image:url("../images/theme_images/sideBar_middle_03_03.png"); /* GR */
 }
 
 #block-user-2 /* "Who's new" block for a list of the newest users */ {

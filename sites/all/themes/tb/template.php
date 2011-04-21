@@ -120,12 +120,13 @@ function tb_preprocess(&$vars, $hook) {
  * @param $hook
  *   The name of the template being rendered ("page" in this case.)
  */
-function tb_preprocess_page(&$vars, $hook) {  
+function tb_preprocess_page(&$vars, $hook) {
  	$vars['sep'] = ' &gt; ';
   if(arg(0) == 'date-browser') {
   	$vars['title'] = 'Calendar';
   }
   
+  /*
   if(drupal_is_front_page()) {
 	  $map = theme('image', path_to_theme().'/images/map.gif');
 	  $link = 'http://maps.google.com/maps?oe=UTF-8&gfns=1&q=Belsize+Park,+London,+United+Kingdom&um=1&ie=UTF-8&hq=&hnear=Belsize+Park,+Greater+London,+UK&ei=rkkCTbyvO9DHswaYurTtCQ&sa=X&oi=geocode_result&ct=image&resnum=1&ved=0CBcQ8gEwAA';
@@ -133,7 +134,7 @@ function tb_preprocess_page(&$vars, $hook) {
 	  $map = l($map, $link, array('attributes' => array('target' => '_blank'), 'html' => 'true'));
     $enlarge = l(t('enlarge'), $link, array('attributes' => array('target' => '_blank'), 'html' => 'true'));
     $vars['map'] = $map . '<div id="enlarge-map">'. $enlarge .'</div><div class="clear" id="loc_bottom"></div>';
-  }
+  }*/
 
   _add_footer_links($vars);
 }
@@ -320,6 +321,24 @@ function tb_preprocess_views_view_table(&$vars) {
 	
 }
 
+function tb_preprocess_views_view_fields__block_1(&$vars) {
+  // get location title
+  $view_row_id = $vars['id']-1;
+  $event = node_load($vars['view']->result[$view_row_id]->nid);
+  $location = node_load($event->field_location[0]['nid']);
+
+  // add field location to view row
+  $flocation = new stdClass();
+  $flocation->content = $location->title;
+  $flocation->inline = FALSE;
+  $flocation->inline_html = 'div';
+  $flocation->class = 'location';
+  $flocation->element_type = 'span';
+  $flocation->label = '';
+  $vars['fields']['location_name'] = $flocation;
+}
+
+
 function get_attend_event_button($event) {
 	if(user_is_logged_in()) {
 		
@@ -408,7 +427,7 @@ function _get_event_map($location_nid) {
   $e = new stdClass();
   $e->width = 302;
   $e->height = 242;
-  $e->src = 'http://maps.google.com/maps?f=q&source=s_q&geocode=&q='. $address .'&ie=UTF8&z=16&output=embed';
+  $e->src = 'http://maps.google.com/maps?f=q&source=s_q&geocode=&q='. $address .'&ie=UTF8&z=16&output=embed&iwloc=near';
   $e->enlarge_link = t('enlarge');
   
   return theme('event_map', $e);

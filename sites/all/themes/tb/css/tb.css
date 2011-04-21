@@ -19,6 +19,7 @@ body.front ul.links { float: right; } /*moves links right */
 
 #main-wrapper {
 	padding-bottom: 4em;
+	background-image: url('../images/white_paper_tile_03_01.png');
 }
 
 
@@ -30,20 +31,20 @@ body.front ul.links { float: right; } /*moves links right */
 .navLeft {
 	background-image:url("../images/nav_bg_left.png"); width:30px;
 	float: left;
-	height: 32px;
+	height: 51px;
 	width: 20px;
 }
 
 .navCenter {background-image:url("../images/nav_bg_center.png");	
 	float:left;
-	height:32px;
+	height:51px;
 	padding-top: 8px;
 }
 
 .navRight {
 	background-image:url("../images/nav_bg_right.png"); width:30px;
 	float: left;
-	height: 32px;
+	height: 51px;
 	width: 15px;}
 }
 
@@ -94,6 +95,8 @@ body.page-events .view-content table {
 	margin-bottom: 0em;
 	
 }
+
+
 
 body.page-events .view-content thead a {
 	font-family: georgia, serif;
@@ -258,6 +261,13 @@ body.page-og
 
 */
 
+/*
+** /////////////// Event Page ////////////////
+**
+**
+**
+*/
+
 .event-details-wrapper {
 	border-bottom:2px dashed gray;
 	
@@ -273,6 +283,17 @@ body.page-og
 
 .event-details .groups ul.links li {
 	padding: 0 0.1em;
+}
+
+body.section-event .groups ul.links li a {
+	color: #007D03;
+	text-decoration: none;
+	background-image:none;
+	padding-left:0px;
+}
+
+body.section-event .groups ul.links li a:hover {
+	text-decoration:underline;
 }
 
 .red {
@@ -348,7 +369,7 @@ body.page-og
 
 #footer-links {
   background: url(../images/trees.png) no-repeat;
-  padding-top: 8em;
+  padding-top: 124px;
 	margin-left: 0em;
 }
 
@@ -386,6 +407,7 @@ ul.links-foot li {
 .item-list {
 	clear:both;
 	padding-top:1em;
+	margin-bottom: 2em;
 }
 
 
@@ -476,16 +498,16 @@ below css controls img of attendees in sidebar
 	color: #ead7bf;
 	text-decoration:none;
 	/*font-style: italic;*/
-	text-transform: uppercase;
-	background: url("../images/star_sBar.png") no-repeat scroll 0 0 transparent;
-	padding-left: 20px;
+	/*text-transform: uppercase;*/
+	/*background: url("../images/star_sBar.png") no-repeat scroll 0 0 transparent;*/
+	/*padding-left: 20px;*/
 }
 
 #block-views-calendar-block_1 .views-field-title .field-content a:hover {
 	color: #ede6dc;
 	text-decoration:underline;
 	font-style: bold;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
 #block-views-calendar-block_1 .views-field-field-date-value .field-content {
@@ -524,7 +546,7 @@ div.block.sidebar-margin ul li a {
 	color: #ead7bf;
 	text-decoration:underline;
 	/*background: url("../images/star_sBar.png") no-repeat scroll 0 0 transparent;*/
-	padding-left:20px;
+	/*padding-left:20px;*/
 	
 }
 
@@ -544,3 +566,75 @@ div.block.with-block-editing ul li {
 html.js .resizable-textarea textarea {
 	border:none;
 }
+
+
+
+
+/* from default.css guy work */
+/*
+** HTML elements
+*/
+fieldset {
+  margin-bottom: 1em;
+  padding: .5em;
+}
+form {
+  margin: 0;
+  padding: 0;
+}
+hr {
+  height: 1px;
+  border: 1px solid gray;
+}
+img {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+}
+th {
+  text-align: left; /* LTR */
+  padding-right: 1em; /* LTR */
+  border-bottom: 3px solid #ccc;
+}
+
+/*
+** Markup free clearing
+** Details: http://www.positioniseverything.net/easyclearing.html
+*/
+.clear-block:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clear-block {
+  display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+* html .clear-block {
+  height: 1%;
+}
+.clear-block {
+  display: block;
+}
+/* End hide from IE-mac */
+
+#block-transition-attendees .item-list ul li .picture {
+  float: left;
+  width: 62px;
+}
+
+#block-transition-attendees .item-list ul li a.user-name {
+  float: left;
+  display: block;
+  width: 118px;
+}
+
+#block-transition-attendees .item-list ul li {
+  clear: both;
+}
+
