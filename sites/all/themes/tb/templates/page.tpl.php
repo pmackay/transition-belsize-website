@@ -204,16 +204,16 @@
 
                      <?php print $content_top; ?>
 
-                     <?php if(drupal_is_front_page()): ?>
+                     <!--<?php if(drupal_is_front_page()): ?>
                       <h1>Location</h1>
                      <?php endif; ?>
                      
-                     <?php print $map; ?>
+                     <?php print $map; ?>-->
 
-                     <?php if ($title): ?>
+                     <!--<?php if ($title): ?>-->
                      <!--div style='border-top:2px dashed gray';-->
-                     <h1 class="title"><?php print $title; ?></h1>
-                     <?php endif; ?>
+                     <!--<h1 class="title"><?php print $title; ?></h1>
+                     <?php endif; ?>-->
                      <?php print $messages; ?>
                      <?php if ($tabs): ?>
                      <div class="tabs"><?php print $tabs; ?></div>
