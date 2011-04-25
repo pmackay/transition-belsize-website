@@ -168,9 +168,9 @@
                   
                   <?php endif; ?>
 
-                  <?php if ($search_box): ?>
+                  <!--<?php if ($search_box): ?>
                   <div id="search-box"><?php print $search_box; ?></div>
-                  <?php endif; ?>
+                  <?php endif; ?>-->
 
                   <?php print $header; ?>
 
@@ -267,15 +267,20 @@
                          ?>
 
                          <?php print $navigation; ?>
+                         
        
                         </div><!-- /.navCenter GR -->
        
-                     <div class="navRight"></div><!-- GR -->
+                     <div class="navRight">
+                     
+                     </div><!-- GR -->
 
                   </div> <!-- /.section -->
                   
                </div> <!-- /#navigation -->
-               
+               <?php if ($search_box): ?>
+                  <div id="search-box"><?php print $search_box; ?></div>
+                  <?php endif; ?>
                <?php endif; ?>
 
                <?php print $sidebar_first; ?>

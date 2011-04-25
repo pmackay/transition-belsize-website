@@ -49,6 +49,9 @@ body {
 }
 
 #search-box {
+  float: right; /* LTR */
+  width: 25%;
+  margin-top: 8px;
 }
 
 .region-header {
@@ -105,7 +108,7 @@ body {
  */
 #navigation {
   float: left; /* LTR */
-  width: 100%;
+  width: 80%;
   margin-left: 0; /* LTR */
   margin-right: -100%; /* LTR */ /* Negative value of #navigation's width + left margin. */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #navigation .section. */
