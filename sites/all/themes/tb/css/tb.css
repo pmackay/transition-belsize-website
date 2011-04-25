@@ -274,11 +274,11 @@ body.page-og
 }
 
 .event-details {
-	text-transform:capitalize;
+	/*text-transform:capitalize;*/
 }
 .event-details .meta, .event-details .groups, .rsvp-event, .loc-con {
 	padding-top: 1.8em;
-	text-transform:capitalize;
+	/*text-transform:capitalize;*/
 }
 
 .event-details .groups ul.links li {
