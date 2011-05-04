@@ -278,9 +278,9 @@
                   </div> <!-- /.section -->
                   
                </div> <!-- /#navigation -->
-               <?php if ($search_box): ?>
+               <!--<?php if ($search_box): ?>
                   <div id="search-box"><?php print $search_box; ?></div>
-                  <?php endif; ?>
+                  <?php endif; ?>-->
                <?php endif; ?>
 
                <?php print $sidebar_first; ?>
