@@ -254,17 +254,7 @@
            
                         <div class="navCenter">
 
-                         <?php print theme(array('links__system_main_menu', 'links'), $primary_links,
-                           array(
-                             'id' => 'main-menu',
-                             'class' => 'linksNav clearfix',
-                           ),
-                           array(
-                             'text' => t('Main menu'),
-                             'level' => 'h2',
-                             'class' => 'element-invisible',
-                           ));
-                         ?>
+                        
 
                          <?php print $navigation; ?>
                          
@@ -305,7 +295,7 @@
               
               
          
-               <?php print theme(array('links__system_secondary_menu', 'links'), $secondary_links,
+               <!--<?php print theme(array('links__system_secondary_menu', 'links'), $secondary_links,
                    array(
                      'id' => 'secondary-menu',
                      'class' => 'links clearfix',
@@ -315,7 +305,7 @@
                      'level' => 'h2',
                      'class' => 'element-invisible',
                    ));
-                 ?>
+                 ?>-->
                   
                  <?php if ($footer_message): ?>
                    <div id="footer-message">  <?php print $footer_message; ?></div>

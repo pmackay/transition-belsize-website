@@ -84,6 +84,10 @@
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
+  <div class="content">
+    <?php print $content; ?>
+  </div>
+
   <?php if ($display_submitted || $terms): ?>
     <div class="meta">
       <?php if ($display_submitted): ?>
@@ -97,10 +101,6 @@
       <?php endif; ?>
     </div>
   <?php endif; ?>
-
-  <div class="content">
-    <?php print $content; ?>
-  </div>
-
+  
   <?php print $links; ?>
 </div> <!-- /.node -->
