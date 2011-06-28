@@ -141,7 +141,7 @@ function tb_preprocess_page(&$vars, $hook) {
 
 function _add_footer_links(&$vars) {
 
-  $footer_primary = theme(array('links__system_main_menu', 'links'), menu_primary_links(),
+  /*$footer_primary = theme(array('links__system_main_menu', 'links'), menu_primary_links(),
     array(
       'id' => 'footer-menu',
       'class' => 'links-foot clearfix', // links changed to links-foot for styling GR 
@@ -151,7 +151,7 @@ function _add_footer_links(&$vars) {
       'level' => 'h2',
       'class' => 'element-invisible',
     )
-  );
+  );*/
 
 
   $global_links = array(
@@ -195,6 +195,7 @@ function tb_preprocess_node(&$vars, $hook) {
 
 function tb_preprocess_node_event(&$vars, $hook) {
   // event date
+//  krumo($vars['node']);
   $vars['event_date'] = _get_event_date($vars['node']->field_date[0]['value']);
 
   // location
@@ -211,6 +212,13 @@ function tb_preprocess_node_event(&$vars, $hook) {
 
   // event google map
   $vars['google_map'] = _get_event_map($vars['node']->field_location[0]['nid']);
+  
+  $img_path = $vars['node']->field_image[0]['filepath'];
+//  krumo($vars['node']->field_image);
+  $presetname = 'event_thumb';
+  $img = theme('imagecache', $presetname, $img_path, $alt = '', $title = '');
+  $img_output = l($img, "node/{$vars['nid']}", array('html' => TRUE));
+  $vars['image'] = $img_output;
 }
 
 function tb_preprocess_node_gallery(&$vars, $hook) {
@@ -295,7 +303,7 @@ function tb_preprocess_content_field($vars) {
 	}
 }
 
-function tb_preprocess_views_view_table(&$vars) {
+/*function tb_preprocess_views_view_table(&$vars) {
 	if($vars['view']->vid == 4) {
 		// add image to each offer
 		foreach($vars['rows'] as $count => $row) {
@@ -318,10 +326,9 @@ function tb_preprocess_views_view_table(&$vars) {
 		$vars['header']['num_attendees'] = 'Atnd.';
 		
 	}
-	
-}
+}*/
 
-function tb_preprocess_views_view_fields__block_1(&$vars) {
+/*function tb_preprocess_views_view_fields__block_1(&$vars) {
   // get location title
   $view_row_id = $vars['id']-1;
   $event = node_load($vars['view']->result[$view_row_id]->nid);
@@ -336,7 +343,7 @@ function tb_preprocess_views_view_fields__block_1(&$vars) {
   $flocation->element_type = 'span';
   $flocation->label = '';
   $vars['fields']['location_name'] = $flocation;
-}
+}*/
 
 
 function get_attend_event_button($event) {
@@ -354,9 +361,9 @@ function get_attend_event_button($event) {
 		} else {
 
 			if(user_allready_attend($event->nid)) {
-				$button = t('Your are allready have attend for this event'). '&nbsp; ('. l('Unsubscribe', "node/{$event->nid}/unsubscribe"). ')';
+				$button = t('You are registered.'). '&nbsp; ('. l('Unsubscribe', "node/{$event->nid}/unsubscribe"). ')';
 			} else {
-				$button = l(t('Attend Event'), "node/{$event->nid}/attend");
+				$button = l(t('Attend event'), "node/{$event->nid}/attend");
 			}			
 		}
 		
@@ -394,51 +401,50 @@ function tb_breadcrumb($breadcrumb) {
 
 function _get_event_location($location_nid) {
   $node = node_load($location_nid);
-  $bul = $node->field_building_nr[0]['value'];
-  $street = $node->field_street[0]['value'];
-  $city = $node->field_city[0]['value'];
-  $conutry = $node->field_conutry[0]['value'];
-  $postcode = $node->field_postcode[0]['value'];
 
-  $location = '<ul class="address">';
-  $location .= '<li>'. $bul.' '. $street. ',</li>';
-  $location .= '<li>'. $city. ',</li>';
-  $location .= '<li>'. $postcode. '</li>';
-  $location .= '</ul>';
+  $street = $node->location['street'];
+  $additional = $node->location['additional'];
+  $city = $node->location['city'];
+  $postcode = $node->location['postal_code'];
+
+  $location .= $node->title. '<br>';
+  $location .= $street. '<br>';
+  $location .= $city. '<br/>';
+  $location .= $postcode. '<br/>';
 
   return $location;
 }
 
 function _get_event_map($location_nid) {
   $location = node_load($location_nid);
-
-  if($location->field_building_nr[0]['value']) $code['building_nr'] = $location->field_building_nr[0]['value'];
-  if($location->field_street[0]['value']) $code['street'] = $location->field_street[0]['value'];
-  if($location->field_city[0]['value']) $code['city'] = $location->field_city[0]['value'];
-  if($location->field_conutry[0]['value']) $code['country'] = $location->field_conutry[0]['value'];
-  if($location->field_postcode[0]['value']) $code['postcode'] = $location->field_postcode[0]['value'];
+//krumo($location);
+  if($location->location['street']) $code['street'] = $location->location['street'];
+  if($location->location['city']) $code['city'] = $location->location['city'];
+  if($location->location['postal_code']) $code['postcode'] = $location->location['postal_code'];
 
   if($code) {
-    $address = implode(', ', $code);
+    $address = implode(' ', $code);
   } else {
     $address = 'London';
   }
+  $address = str_replace(' ', '+', $address);
 
   $e = new stdClass();
-  $e->width = 302;
-  $e->height = 242;
+  $e->width = 200;
+  $e->height = 150;
   $e->src = 'http://maps.google.com/maps?f=q&source=s_q&geocode=&q='. $address .'&ie=UTF8&z=16&output=embed&iwloc=near';
-  $e->enlarge_link = t('enlarge');
+  //$e->enlarge_link = t('enlarge');
   
   return theme('event_map', $e);
 }
 
 function _get_event_date($event_date) {
+//krumo($event_date);
   list($date, $time) = explode('T', $event_date);
   list($year, $month, $day) = explode('-', $date);
   list($hours, $minutes, $seconds) = explode(':', $time);
   $timestamp = mktime($hours, $minutes, $seconds, $month, $day, $year);
 
-  return format_date($timestamp, 'custom', 'd/m/Y g:ia', $timezone=0);
+  return format_date($timestamp, 'custom', 'd/m/Y g:ia');
 }
 
