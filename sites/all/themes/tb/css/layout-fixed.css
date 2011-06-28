@@ -130,7 +130,7 @@ body {
 	margin: 0;
   padding: 0;
   text-align: left; /* LTR */
-	font-size: 1.313em; /* GR */
+	font-size: 1.1em; /* GR */
 }
 
 #navigation li /* A simple method to get navigation links to appear in one line. */ {
@@ -200,6 +200,7 @@ body {
   word-wrap: break-word; /* A very nice CSS3 property */
 }
 
+
 #navigation {
   overflow: hidden; /* May need to be removed if using a dynamic drop-down menu */
 }
@@ -217,3 +218,15 @@ body {
   overflow-y: hidden;
 }
 */
+
+div.views-field-picture img {
+  float: left;
+  margin: 10px;  
+}
+
+
+div.view-user-list div.views-row {
+  margin-top: 100px;
+}
+
+

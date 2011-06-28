@@ -495,7 +495,7 @@ below css controls img of attendees in sidebar
 }
 
 #block-views-calendar-block_1 .views-field-title .field-content a {
-	color: #ead7bf;
+	color: #605C43;
 	text-decoration:none;
 	/*font-style: italic;*/
 	/*text-transform: uppercase;*/
@@ -504,7 +504,7 @@ below css controls img of attendees in sidebar
 }
 
 #block-views-calendar-block_1 .views-field-title .field-content a:hover {
-	color: #ede6dc;
+	color: #605C43;
 	text-decoration:underline;
 	font-style: bold;
 	/*text-transform: uppercase;*/
@@ -515,7 +515,7 @@ below css controls img of attendees in sidebar
 }
 
 #user-login-form ul a {
-	color: #ead7bf;
+	color: #605C43;
 }
 
 #user-login-form .item-list ul li {
@@ -528,7 +528,7 @@ below css controls img of attendees in sidebar
 }
 
 #block-block-2 .item-list ul li a {
-	color: #ead7bf;
+	color: #605C43;
 	text-decoration:underline;
 	/*background: url("../images/star_sBar.png") no-repeat scroll 0 0 transparent;*/
 	padding-left:20px;
@@ -536,14 +536,14 @@ below css controls img of attendees in sidebar
 }
 
 #block-block-2 .item-list ul li a:hover {
-	color: #ede6dc;
+	color: #605C43;
 	text-decoration:underline;
 	font-style: bold;
 	background: url("../images/star_sBar.png") no-repeat scroll 0 0 transparent;
 }
 
 div.block.sidebar-margin ul li a {
-	color: #ead7bf;
+	color: #605C43;
 	text-decoration:underline;
 	/*background: url("../images/star_sBar.png") no-repeat scroll 0 0 transparent;*/
 	/*padding-left:20px;*/
@@ -551,14 +551,15 @@ div.block.sidebar-margin ul li a {
 }
 
 div.block.sidebar-margin ul li a:hover {
-	color: #ede6dc;
+	color: #605C43;
 	text-decoration:underline;
 	font-style: bold;
 }
 
 div.block.with-block-editing ul li {
-	list-style: none outside none;
+	/*list-style: none outside none;*/
 	padding-bottom:5px;
+	margin-left: 20px;
 }
 
 /* /////////////////////   comments input area  //////////////////////// */
@@ -638,3 +639,15 @@ th {
   clear: both;
 }
 
+
+
+div.post-title {
+    margin-left: 0;
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-style: bold;
+}
+
+/*.cke_editor_edit-body{
+  height:80px;
+}*/

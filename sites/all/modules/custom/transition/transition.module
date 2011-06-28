@@ -36,7 +36,7 @@ function transition_menu() {
   
   // og gallery (filter)
   $items['node/%node/og/galleries'] = array(
-    'title' => 'Galleries',
+    'title' => 'Photos',
     'page callback' => 'galleries_page',
     'page arguments' => array(1),
     'access callback' => '_access_galleries',
@@ -107,7 +107,7 @@ function general_page($ognode, $type) {
 	  }
 	}
 	
-	return $no_results ? 'This group dosn\'t have any '. $type : $results;
+	return $no_results ? 'This group doesn\'t have any '. $type . ' content.' : $results;
 }
 
 function all_attendees_page($node) {
@@ -138,7 +138,7 @@ function _unsubscribe_event($node) {
 function _attend($node, $response) {
 	global $user;
 	$respond_ok = t('Your response has been saved.');
-	$respond_bad = t('Something go wrong please try again later.');	
+	$respond_bad = t('Something has gone wrong please try again later.');	
 
 	// if we have invitations for current node/event
 	// $rid = rsvp ID (invitation ID)
@@ -492,3 +492,11 @@ function transition_preprocess_user_picture(&$variables) {
     }
   }
 }
+
+function transition_form_alter(&$form, &$form_state, $form_id) {
+//  krumo($form);
+}
+
+
+
+
