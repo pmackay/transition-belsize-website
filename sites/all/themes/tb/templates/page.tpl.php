@@ -212,8 +212,8 @@
 
                      <!--<?php if ($title): ?>-->
                      <!--div style='border-top:2px dashed gray';-->
-                     <!--<h1 class="title"><?php print $title; ?></h1>
-                     <?php endif; ?>-->
+                     <h1 class="title"><?php print $title; ?></h1>
+                     <?php endif; ?>
                      <?php print $messages; ?>
                      <?php if ($tabs): ?>
                      <div class="tabs"><?php print $tabs; ?></div>
@@ -254,7 +254,17 @@
            
                         <div class="navCenter">
 
-                        
+                         <?php print theme(array('links__system_main_menu', 'links'), $primary_links,
+                           array(
+                             'id' => 'main-menu',
+                             'class' => 'linksNav clearfix',
+                           ),
+                           array(
+                             'text' => t('Main menu'),
+                             'level' => 'h2',
+                             'class' => 'element-invisible',
+                           ));
+                         ?>
 
                          <?php print $navigation; ?>
                          
