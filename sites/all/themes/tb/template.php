@@ -126,6 +126,12 @@ function tb_preprocess_page(&$vars, $hook) {
   	$vars['title'] = 'Calendar';
   }
   
+  if(implode('/', arg()) == 'user/register') {
+    drupal_add_js(path_to_theme(). '/js/tb.js');
+    
+    $vars['scripts'] = drupal_get_js();
+  }
+  
   /*
   if(drupal_is_front_page()) {
 	  $map = theme('image', path_to_theme().'/images/map.gif');
