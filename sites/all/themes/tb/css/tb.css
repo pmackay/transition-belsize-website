@@ -326,6 +326,11 @@ body.section-event .groups ul.links li a:hover {
 	padding-left:12px;
 }
 
+/* fixing problem on register page for home phone lable (it's floating) */
+#edit-field-home-phone-0-value-wrapper {
+  clear: both;
+}
+
 .event-map {
 	float: right;
 	padding-top: 12px;
@@ -355,7 +360,6 @@ body.section-event .groups ul.links li a:hover {
   padding-left: 22px;
 	color: #757080; 
 }
-
 
 .clear {
   clear: both;
@@ -639,8 +643,6 @@ th {
   clear: both;
 }
 
-
-
 div.post-title {
     margin-left: 0;
     padding-left: 10px;
@@ -648,6 +650,3 @@ div.post-title {
     font-style: bold;
 }
 
-/*.cke_editor_edit-body{
-  height:80px;
-}*/
