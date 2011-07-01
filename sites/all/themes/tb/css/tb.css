@@ -45,7 +45,7 @@ body.front ul.links { float: right; } /*moves links right */
 	background-image:url("../images/nav_bg_right.png"); width:30px;
 	float: left;
 	height: 51px;
-	width: 15px;}
+	width: 15px;
 }
 
 .navigation a {
@@ -461,31 +461,10 @@ ul.links-foot li {
 	text-transform: capitalize;
 }
 
-.	sidebar-margin {
+.sidebar-margin {
 	margin-left: 2em;
 	padding-top: 3em:;
 }
-
-
-/*
-
-below css controls img of attendees in sidebar
-
-#block-transition-attendees .picture {
-	float: left;
-}
-
-.picture a img {
-	width:30px;
-	height:30px;
-}
-*/
-
-
-
-
-
-
 
 
 #block-views-calendar-block_1 ul li {
@@ -650,3 +629,9 @@ div.post-title {
     font-style: bold;
 }
 
+
+/* removing tips on user/register page */
+body.page-user-register .body-field-wrapper p,
+body.page-user-register ul.tips {
+  display: none;
+}
